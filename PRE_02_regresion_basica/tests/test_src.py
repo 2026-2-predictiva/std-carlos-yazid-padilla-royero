@@ -22,8 +22,12 @@ def test_01():
     with open(f"{FOLDER}/submission/features_scaler.pkl", "rb") as file:
         features_scaler = pickle.load(file)
 
+    with open(f"{FOLDER}/submission/reducer.pkl", "rb") as file:
+            reducer = pickle.load(file)
+
     standarized_dataset = features_scaler.transform(dataset)
-    y_pred = mlp.predict(standarized_dataset)
+    reduced_dataset = reducer.transform(standarized_dataset)
+    y_pred = mlp.predict(reduced_dataset)
 
     mse = mean_squared_error(
         y_true=y_true,
