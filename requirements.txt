@@ -15,4 +15,4 @@ scikit-learn
 seaborn
 statsmodels
 umap-learn
-urllib
+urllib3
